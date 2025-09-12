@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="'en">
+<html lang="en">
     <head>
-        <meta charset="'UTF-8">
-        <title>TEDTalk REcommender</title>
+        <meta charset="UTF-8">
+        <title>TEDTalk Recommender</title>
         <style>
             body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
             form { margin-bottom: 20px; }
@@ -15,7 +15,7 @@
     <body>
         <h1>TED Talk REcommender</h1>
         <form method="POST">
-            <input type="text" name="'query" placeholder="What Kind of ted talk are you looking for?" value="{{query}}" size="50">
+            <input type="text" name="query" placeholder="What Kind of ted talk are you looking for?" value="{{query}}" size="50">
             <button type="submit"> Recommend </button>         
         </form>
 
@@ -23,11 +23,11 @@
         <div class="grid">
             {% for r in recommendations %}
             <div class="card">
-                <img src="{{ r.thumbnail_url}}" alt=""Thumbnail>
-                <h3>{{ r.title }}</h3>
-                <p>{{ r. description[:150] }}...</p>
-                <a href="https://www.youtube.com/watch?v={{ r.video_id }}" target="_blank">Watch on YouTube</a>
-                <p><small>Score: {{"%.3f"|format(r.score)}} | Published: {{ r.published_at }}</small></p>
+                <img src="{{ r['thumbnail_url']}}" alt=""Thumbnail>
+                <h3>{{ r['title'] }}</h3>
+                <p>{{ r['description'][:150] }}...</p>
+                <a href="https://www.youtube.com/watch?v={{ r['video_id'] }}" target="_blank">Watch on YouTube</a>
+                <p><small>Score: {{"%.3f"|format(r['score'])}} | Published: {{ r['published_at'] }}</small></p>
             </div>
             {% endfor %}
         </div>

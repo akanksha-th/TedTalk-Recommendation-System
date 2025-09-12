@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 from recommender import Recommender
 
 app = Flask(__name__)
+
 recommender = Recommender()
 
 @app.route('/', methods=['GET', 'POST'])
@@ -9,9 +10,13 @@ def index():
     recommendations = []
     query = ""
     if request.method == 'POST':
-        query = request.form.get("What Kind of Ted Talk Are You Looking For?", "")
+        query = request.values.get("query", "").strip()
+        print("DEBUG: Form data =", request.form)
+        print("DEBUG: Query =", query)
+        
         if query:
             recommendations = recommender.recommend(query, top_k=5)
+            print("DEBUG:", recommendations)
     return render_template("index.html", query=query, recommendations=recommendations)
 
 
