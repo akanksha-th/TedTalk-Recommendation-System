@@ -3,6 +3,8 @@
     tedrec/
     ├── app.py                  # Streamlit entrypoint
     ├── requirements.txt
+    ├── pipeline.py
+    ├── tedrec.db
     ├── .env                    # holds YOUTUBE_API_KEY, DB path, etc.
     │
     ├── core/
