@@ -32,3 +32,27 @@
 
 ## How did I go by it?
 database+ingestion -> embeddings -> streamlit ui mvp -> further advancements
+
+
+## Getting Started
+**Clone the repo**
+```bash
+git clone 
+
+## Create virtual environment and install dependencies
+python -m venv tedrec
+tedrec\Scripts\activate # Windows
+pip install -r requirements.txt
+
+
+# Set environment variables (.env)
+YOUTUBE_API_KEY=your_youtube_api_key_here
+EMBED_MODEL=all-MiniLM-L6-v2
+TED_CHANNEL_ID=UCAuUUnT6oDeKwE6v1NGQxug
+TEDREC_DB=tedrec.db
+
+## Run the pipeline
+python pipeline.py
+
+## Launch Streamlit UI
+streamlit run app.py
