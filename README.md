@@ -37,11 +37,14 @@ database+ingestion -> embeddings -> streamlit ui mvp -> further advancements
 ## Getting Started
 **Clone the repo**
 ```bash
-git clone 
+git clone
+cd tedrec
 
 ## Create virtual environment and install dependencies
 python -m venv tedrec
-tedrec\Scripts\activate # Windows
+tedrec\Scripts\activate # On Windows
+# or: source tedrec/bin/activate  # On macOS/Linux
+
 pip install -r requirements.txt
 
 
