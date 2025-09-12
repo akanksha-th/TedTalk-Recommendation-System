@@ -5,7 +5,7 @@ from recommender import Recommender
 
 def run_pipeline(query: str, top_k: int = 5):
     print("=== STEP 1: Updating TED videos ===")
-    update_ted_videos(max_pages=5)  # limit during dev, remove for full fetch
+    update_ted_videos(max_pages=10)  # set limit or remove for full fetch
 
     print("=== STEP 2: Embedding videos ===")
     embed_and_store()
