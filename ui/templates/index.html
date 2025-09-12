@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="'en">
+    <head>
+        <meta charset="'UTF-8">
+        <title>TEDTalk REcommender</title>
+        <style>
+            body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
+            form { margin-bottom: 20px; }
+            .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .card { width: 300px; border: 1px solid #ddd; border-radius: 10px; padding: 15px; text-align: left; }
+            .card img { width: 100%; border-radius: 10px; }
+            .card h3 { margin: 10px 0; font-size: 1.2em; }
+        </style>
+    </head>
+    <body>
+        <h1>TED Talk REcommender</h1>
+        <form method="POST">
+            <input type="text" name="'query" placeholder="What Kind of ted talk are you looking for?" value="{{query}}" size="50">
+            <button type="submit"> Recommend </button>         
+        </form>
+
+        {% if recommendations %}
+        <div class="grid">
+            {% for r in recommendations %}
+            <div class="card">
+                <img src="{{ r.thumbnail_url}}" alt=""Thumbnail>
+                <h3>{{ r.title }}</h3>
+                <p>{{ r. description[:150] }}...</p>
+                <a href="https://www.youtube.com/watch?v={{ r.video_id }}" target="_blank">Watch on YouTube</a>
+                <p><small>Score: {{"%.3f"|format(r.score)}} | Published: {{ r.published_at }}</small></p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </body>
+</html>

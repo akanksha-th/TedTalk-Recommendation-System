@@ -57,5 +57,7 @@ TEDREC_DB=tedrec.db
 ## Run the pipeline
 python pipeline.py
 
-## Launch Streamlit UI
+## Run locally - Launch Streamlit UI
 streamlit run app.py
+#or
+python flask_app.py
