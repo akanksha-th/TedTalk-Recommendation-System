@@ -60,7 +60,7 @@ The project provides both:
 
 **Clone the repo**
 ```bash
-git clone
+git clone <the-repo-url>
 cd tedrec
 ```
 
