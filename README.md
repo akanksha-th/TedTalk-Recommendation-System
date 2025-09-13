@@ -1,8 +1,18 @@
+# TedTalk-Recommendation-System
+This project is a recommendation system for TED Talks built with Flask. It connects to the YouTube Data API to fetch TED videos, stores them in a SQLite database and generates embeddings using open-source HuggingFace models.Recommendations are made through content-based filtering, matching user queries to the most relevant TED Talks. 
+
+The project provides both:
+- a **Streamlit prototype** for local experimentation, and  
+- a **Flask-based web UI** deployed on **Render** for easy usage.  
+
+---
+
 ## Project Structure
 
     tedrec/
-    ├── app.py                  # Streamlit entrypoint
+    ├── run_locally.py          # Streamlit entrypoint
     ├── requirements.txt
+    ├── Procfile                # Deployment entrypoint
     ├── pipeline.py
     ├── tedrec.db
     ├── .env                    # holds YOUTUBE_API_KEY, DB path, etc.
@@ -27,37 +37,56 @@
     ├── recommender/
     │   ├── __init__.py
     │   ├── content_based.py    # ContentRecommender
+    │
+    ├── ui/
+    │   ├── __init__.py
+    │   ├── flask_app.py        # Flask web UI
+    |   ├── templates/
+    |      ├── index.html 
 
+---
 
+## Development Flow
 
-## How did I go by it?
-database+ingestion -> embeddings -> streamlit ui mvp -> further advancements
+1. Build database + ingestion layer  
+2. Add embeddings + vector search  
+3. Prototype with Streamlit UI (MVP)  
+4. Extend with Flask-based web UI  
+5. Deploy on Render
 
+---
 
 ## Getting Started
+
 **Clone the repo**
 ```bash
 git clone
 cd tedrec
+```
 
-## Create virtual environment and install dependencies
+**Create virtual environment and install dependencies**
+```bash
 python -m venv tedrec
 tedrec\Scripts\activate # On Windows
 # or: source tedrec/bin/activate  # On macOS/Linux
 
 pip install -r requirements.txt
+```
 
-
-# Set environment variables (.env)
+**Set environment variables (.env)**
+```bash
 YOUTUBE_API_KEY=your_youtube_api_key_here
 EMBED_MODEL=all-MiniLM-L6-v2
 TED_CHANNEL_ID=UCAuUUnT6oDeKwE6v1NGQxug
 TEDREC_DB=tedrec.db
+```
 
-## Run the pipeline
+**Run the pipeline and launch the interactive UI**
+```bash
 python pipeline.py
 
 ## Run locally
-streamlit run app.py
+streamlit run run_locally.py
 #or
 python -m ui.flask_app
+```
