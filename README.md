@@ -6,6 +6,11 @@ The project provides both:
 - a **Flask-based web UI** for local testing and practicing Flask skills.  
 
 ---
+## Preview
+
+![Demo Screenshot](core/screenshot.png)
+
+---
 
 ## Project Structure
 
