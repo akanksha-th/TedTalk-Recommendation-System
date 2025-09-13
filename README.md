@@ -84,9 +84,13 @@ TEDREC_DB=tedrec.db
 **Run the pipeline and launch the interactive UI**
 ```bash
 python pipeline.py
+```
 
-## Run locally
+**Run locally**
+```bash
+# Option 1: Streamlit prototype
 streamlit run run_locally.py
-#or
+
+# Option 2: Flask app
 python -m ui.flask_app
 ```
