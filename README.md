@@ -2,15 +2,15 @@
 This project is a recommendation system for TED Talks built with Flask. It connects to the YouTube Data API to fetch TED videos, stores them in a SQLite database and generates embeddings using open-source HuggingFace models.Recommendations are made through content-based filtering, matching user queries to the most relevant TED Talks. 
 
 The project provides both:
-- a **Streamlit prototype** for local experimentation, and  
-- a **Flask-based web UI** deployed on **Render** for easy usage.  
+- a **Streamlit-based UI**, deployed on Streamlit Cloud (main deployment), and  
+- a **Flask-based web UI** for local testing and practicing Flask skills.  
 
 ---
 
 ## Project Structure
 
     tedrec/
-    ├── run_locally.py          # Streamlit entrypoint
+    ├── st_app.py               # Streamlit entrypoint
     ├── requirements.txt
     ├── Procfile                # Deployment entrypoint
     ├── pipeline.py
@@ -50,9 +50,9 @@ The project provides both:
 
 1. Build database + ingestion layer  
 2. Add embeddings + vector search  
-3. Prototype with Streamlit UI (MVP)  
-4. Extend with Flask-based web UI  
-5. Deploy on Render
+3. Prototype with Streamlit UI (MVP)
+4. Deploy on Streamlit Cloud 
+5. Extend with Flask-based web UI for practice 
 
 ---
 
@@ -89,7 +89,7 @@ python pipeline.py
 **Run locally**
 ```bash
 # Option 1: Streamlit prototype
-streamlit run run_locally.py
+streamlit run st_app.py
 
 # Option 2: Flask app
 python -m ui.flask_app
